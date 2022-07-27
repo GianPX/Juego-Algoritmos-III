@@ -398,6 +398,7 @@ public class main {
         creador = new CreadorPieza();
         DistHexagono distribucion = new DistHexagono(new Ficha("0"),new Ficha("1"),new Ficha("0"),new Ficha("1"),new Ficha("0"),new Ficha("1"));
         Pieza<Ficha,DistHexagono,String> p1 = new Pieza<>(distribucion);
+    
         c1.insertar(p1,emptyFicha);
         System.out.println(c1.getFicha().getValue());
         System.out.println(c2.getFicha().getValue());
