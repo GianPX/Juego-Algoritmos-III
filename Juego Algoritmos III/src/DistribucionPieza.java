@@ -5,6 +5,7 @@ import java.util.Set;
 public abstract class DistribucionPieza<D,F extends Ficha> implements RecorridoYPosicion {
     //Attributes
     HashMap<D,F> mapa = new HashMap<D,F>();
+    int constanteMatches;
     //Methods
     public void add(D direccion,F f){
         this.mapa.put(direccion,f);
@@ -20,5 +21,8 @@ public abstract class DistribucionPieza<D,F extends Ficha> implements RecorridoY
     }
     public void setDistribucion(F...f){
 
+    }
+    public int getConstante(){
+        return this.constanteMatches;
     }
 }

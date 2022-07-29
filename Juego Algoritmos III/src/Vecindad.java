@@ -20,7 +20,7 @@ public class Vecindad<D,C extends Casilla> {
     }
     public void putVecinos(C ...vecinos){
     }
-    public Set keySet(){
+    public Set<D> keySet(){
         return mapa.keySet();
     }
 }

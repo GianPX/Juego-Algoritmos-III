@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Casilla<E extends Ficha,D,V extends Vecindad> {
+public class Casilla<E extends Ficha,D,V extends Vecindad<D,Casilla>> {
     //Attributes
     E ficha;
     V vecinos;
@@ -18,11 +18,13 @@ public class Casilla<E extends Ficha,D,V extends Vecindad> {
         this.ficha=ficha;
     }
 
-    public void insertar(Pieza pieza, E emptyFicha){
+    public void insertar(Pieza pieza, E emptyFicha, GameManager changeManager){
         if(this.insertable(pieza.getDistribucion(),pieza.getRecorrido(),pieza.getPosiciones(),emptyFicha)){
             this.insertar2(pieza.getDistribucion(),pieza.getRecorrido(),pieza.getPosiciones());
             pieza = null;
-        }else System.out.println("No se puede insertar la pieza");
+        }else {
+            System.out.println("No se puede insertar la pieza");
+        }
     }
 
     private boolean insertable(DistribucionPieza<D,E> distribucion, ArrayList<D> recorrido, ArrayList<D> posiciones,E emptyFicha){
@@ -53,7 +55,14 @@ public class Casilla<E extends Ficha,D,V extends Vecindad> {
             return lista;
         }
     }
-    
+    public void recorrerProfundidad(ArrayList visitados){
+        visitados.add(this);
+        for(D i : this.vecinos.keySet()){
+            Casilla next = this.vecinos.get(i);
+            if(!visitados.contains(next)) next.recorrerProfundidad(visitados);
+        }
+        
+    }
     private void insertar2(DistribucionPieza<D,E> distribucion, ArrayList<D> recorrido, ArrayList<D> posiciones){
         ArrayList<Casilla> casillas = this.recorrer(recorrido);
         for(Casilla<E,D,V> i : casillas){

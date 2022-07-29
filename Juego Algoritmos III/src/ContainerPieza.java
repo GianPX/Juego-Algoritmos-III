@@ -17,8 +17,8 @@ public class ContainerPieza {
             System.out.println();
         }
     }
-    public void refill(CreadorPieza creador){
-        if(this.contPiezas()<3){
+    public void refill(CreadorPieza creador,int cantidad){
+        if(this.contPiezas()<cantidad){
             this.piezas.add(creador.createPieza());
         }
     }
