@@ -18,12 +18,13 @@ public class Casilla<E extends Ficha,D,V extends Vecindad<D,Casilla>> {
         this.ficha=ficha;
     }
 
-    public void insertar(Pieza pieza, E emptyFicha, GameManager changeManager){
+    public boolean insertar(Pieza pieza, E emptyFicha){
         if(this.insertable(pieza.getDistribucion(),pieza.getRecorrido(),pieza.getPosiciones(),emptyFicha)){
             this.insertar2(pieza.getDistribucion(),pieza.getRecorrido(),pieza.getPosiciones());
-            pieza = null;
+            return true;
         }else {
             System.out.println("No se puede insertar la pieza");
+            return false;
         }
     }
 
@@ -66,7 +67,7 @@ public class Casilla<E extends Ficha,D,V extends Vecindad<D,Casilla>> {
     private void insertar2(DistribucionPieza<D,E> distribucion, ArrayList<D> recorrido, ArrayList<D> posiciones){
         ArrayList<Casilla> casillas = this.recorrer(recorrido);
         for(Casilla<E,D,V> i : casillas){
-            i.ficha=null;
+            
             i.setFicha(distribucion.get(posiciones.get(0)));
             posiciones.remove(0);
         }

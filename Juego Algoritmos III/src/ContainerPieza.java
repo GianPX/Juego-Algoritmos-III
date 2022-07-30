@@ -2,10 +2,13 @@ import java.util.ArrayList;
 import java.util.Random;
 public class ContainerPieza {
     //Attributes
+    int cantidadPiezas;
     ArrayList<Pieza> piezas = new ArrayList<>();
+    CreadorPieza creador = new CreadorPieza();
     //Constructor
-    public ContainerPieza(){
-
+    public ContainerPieza(int cantidad){
+        this.cantidadPiezas=cantidad;
+        this.refill();
     }
     //Methods
     public int contPiezas(){
@@ -17,9 +20,16 @@ public class ContainerPieza {
             System.out.println();
         }
     }
-    public void refill(CreadorPieza creador,int cantidad){
-        if(this.contPiezas()<cantidad){
-            this.piezas.add(creador.createPieza());
+    public void refill(){
+        while(this.contPiezas()<this.cantidadPiezas){
+            this.piezas.add(this.creador.createPieza());
         }
+    }
+    public void delete(Pieza pieza){
+        this.piezas.remove(pieza);
+    }
+
+    public ArrayList<Pieza> getPiezas(){
+        return this.piezas;
     }
 }

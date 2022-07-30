@@ -3,8 +3,10 @@ import java.util.ArrayList;
 public class main {
     public static void main(String[] args){
     
-        ContainerPieza container = new ContainerPieza();
+        GamePrinter printer = new GamePrinter();
+        ContainerPieza container = new ContainerPieza(3);
         CreadorPieza creador = new CreadorPieza();
+        GameManager gameManager = new GameManager();
 
         //Objetos para comparar
         Ficha emptyFicha = new Ficha<String>("0");
@@ -286,21 +288,8 @@ public class main {
         c52.setVecinos(v52);
         c53.setVecinos(v53);
     
-        f21.setValue("1");
-        f22.setValue("1");
-        f33.setValue("1");
-        f32.setValue("1");
-        f31.setValue("1");
-        f20.setValue("1");
-
-        c21.setFicha(f21);
-        c22.setFicha(f22);
-        c33.setFicha(f33);
-        c32.setFicha(f32);
-        c31.setFicha(f31);
-        c20.setFicha(f20);
-
-        int matches = matcher.contarMatches(c0, emptyDist, emptyFicha);
-        System.out.println(matches);
+        
+        gameManager.play(c1, container.piezas.get(0), matcher, container, emptyFicha, emptyDist);
+        printer.printGame(container, c0,c7,c16,c27,c38,c47);
     }
 }
