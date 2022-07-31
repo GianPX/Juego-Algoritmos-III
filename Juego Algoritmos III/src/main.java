@@ -12,6 +12,8 @@ public class main {
         Ficha emptyFicha = new Ficha<String>("0");
         DistribucionPieza emptyDist = new DistHexagono(emptyFicha,emptyFicha,emptyFicha,emptyFicha,emptyFicha,emptyFicha);
         Matcher matcher = new Matcher();
+        Puntaje puntaje = new Puntaje();
+        puntaje.setPuntos(0);
 
         Ficha f0 = new Ficha<String>("0");
         Ficha f1 = new Ficha<String>("0");
@@ -287,9 +289,9 @@ public class main {
         c51.setVecinos(v51);
         c52.setVecinos(v52);
         c53.setVecinos(v53);
-    
         
-        gameManager.play(c1, container.piezas.get(0), matcher, container, emptyFicha, emptyDist);
-        printer.printGame(container, c0,c7,c16,c27,c38,c47);
+        
+        gameManager.play(c1, container.piezas.get(0), matcher, container, emptyFicha, emptyDist,puntaje);
+        printer.printGame(container,puntaje,c0,c7,c16,c27,c38,c47);
     }
 }

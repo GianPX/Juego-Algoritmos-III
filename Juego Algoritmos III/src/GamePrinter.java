@@ -11,10 +11,17 @@ public class GamePrinter {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-    public void printGame(ContainerPieza container, Casilla ... casillas){
+    public void printGame(ContainerPieza container,Puntaje puntaje, Casilla ... casillas){
+        this.printPuntaje(puntaje);
         this.printTablero(casillas);
         this.printPiezas(container);
     }
+    
+    private void printPuntaje(Puntaje puntaje){
+        System.out.println(puntaje.getPuntos());
+    } 
+
+
     private void printTablero(Casilla ... casillas){
         
         System.out.print("    ");
