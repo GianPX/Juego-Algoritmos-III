@@ -15,6 +15,8 @@ public class GameManager{
             pieza = null;
             container.refill();
             
+        }else{
+            System.out.println("No se puede insertar la pieza");
         }
 
     }
