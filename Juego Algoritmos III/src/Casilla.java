@@ -25,8 +25,12 @@ public class Casilla<E extends Ficha, D, V extends Vecindad<D, Casilla>> {
         if (this.insertable(pieza.getDistribucion(), pieza.getRecorrido(), pieza.getPosiciones(), emptyFicha)) {
             this.insertar2(pieza.getDistribucion(), pieza.getRecorrido(), pieza.getPosiciones());
             return true;
+<<<<<<< HEAD
+        }else {
+=======
         } else {
             System.out.println("No se puede insertar la pieza");
+>>>>>>> refs/remotes/origin/main
             return false;
         }
     }
