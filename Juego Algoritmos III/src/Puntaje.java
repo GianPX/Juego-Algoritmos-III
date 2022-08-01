@@ -2,6 +2,11 @@
 public class Puntaje {
     int puntos;
 
+
+    public Puntaje(int puntos){
+        this.puntos=puntos;
+    }
+
     public int contarPuntaje(Pieza pieza, int ch, Ficha emptyFicha) {
 
         this.puntos += pieza.getFichasPieza(emptyFicha);

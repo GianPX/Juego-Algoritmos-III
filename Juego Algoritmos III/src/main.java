@@ -12,8 +12,9 @@ public class main {
         Ficha emptyFicha = new Ficha<String>("0");
         DistribucionPieza emptyDist = new DistHexagono(emptyFicha,emptyFicha,emptyFicha,emptyFicha,emptyFicha,emptyFicha);
         Matcher matcher = new Matcher();
-        Puntaje puntaje = new Puntaje();
-        puntaje.setPuntos(0);
+        Puntaje puntaje = new Puntaje(400);
+        Comodines comodines= new Comodines(1,1);
+    
 
         Ficha f0 = new Ficha<String>("0");
         Ficha f1 = new Ficha<String>("0");
@@ -290,8 +291,12 @@ public class main {
         c52.setVecinos(v52);
         c53.setVecinos(v53);
         
-        
+        printer.printGame(container,puntaje,c0,c7,c16,c27,c38,c47);
         gameManager.play(c1, container.piezas.get(0), matcher, container, emptyFicha, emptyDist,puntaje);
+        printer.printGame(container,puntaje,c0,c7,c16,c27,c38,c47);
+        comodines.Basurero(container, container.piezas.get(1), puntaje);
+        printer.printGame(container,puntaje,c0,c7,c16,c27,c38,c47);
+        comodines.Martillo(emptyFicha,c1, puntaje);
         printer.printGame(container,puntaje,c0,c7,c16,c27,c38,c47);
     }
 }
