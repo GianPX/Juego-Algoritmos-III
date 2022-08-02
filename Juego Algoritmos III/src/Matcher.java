@@ -18,7 +18,7 @@ public class Matcher<E extends Ficha,C extends Casilla<E,D,V>,V extends Vecindad
                 if(this.match(i, emptyDist.recorrido(), i.getFicha())) cont++;
             } 
         }
-        return cont/emptyDist.getConstante();
+        return cont/emptyDist.getConstanteM();
     }
     private boolean match(C c,ArrayList<D> recorrido,E ficha){
         int size=recorrido.size();

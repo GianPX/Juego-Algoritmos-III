@@ -4,13 +4,16 @@ public class ContainerPieza {
     //Attributes
     int cantidadPiezas;
     ArrayList<Pieza> piezas = new ArrayList<>();
-    CreadorPieza creador = new CreadorPieza();
+    CreadorPieza creador = new CreadorHexagono();
     //Constructor
     public ContainerPieza(int cantidad){
         this.cantidadPiezas=cantidad;
         this.refill();
     }
     //Methods
+    public Pieza get(int index){
+        return this.piezas.get(index);
+    }
     public int contPiezas(){
         return this.piezas.size();
     }

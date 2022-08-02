@@ -50,5 +50,7 @@ public class Pieza<F extends Ficha, Dist extends DistribucionPieza, D> {
         }
         return cont;
     }
-
+    public int getConstanteR(){
+        return this.distribucion.getConstanteR();
+    }
 }

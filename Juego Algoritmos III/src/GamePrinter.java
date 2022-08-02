@@ -7,18 +7,23 @@ public class GamePrinter {
 
     //Methods
     private static void limpiar(){
-        limpiar();
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
     public void printGame(ContainerPieza container,Puntaje puntaje, Casilla ... casillas){
         this.printPuntaje(puntaje);
         this.printTablero(casillas);
+        System.out.println();
         this.printPiezas(container);
+        System.out.println();
+        System.out.println("4. Rotar");
+        System.out.println("5. Martillo");
+        System.out.println("6. Basura");
+        System.out.println();
     }
     
     private void printPuntaje(Puntaje puntaje){
-        System.out.println(puntaje.getPuntos());
+        System.out.println("Score: "+puntaje.getPuntos());
     } 
 
 
@@ -48,17 +53,29 @@ public class GamePrinter {
         }
     }
     private void printPiezas(ContainerPieza container){
-        for(Pieza i : container.getPiezas()){
-            this.printPieza(i.getDistribucion());
-        }
+        System.out.print("1. "+container.getPiezas().get(0).getDistribucion().get("arriba-iz").getValue());
+        System.out.print(" "+container.getPiezas().get(0).getDistribucion().get("arriba").getValue());
+        System.out.print(" "+container.getPiezas().get(0).getDistribucion().get("arriba-de").getValue()+"   ");
+
+        System.out.print("2. "+container.getPiezas().get(1).getDistribucion().get("arriba-iz").getValue());
+        System.out.print(" "+container.getPiezas().get(1).getDistribucion().get("arriba").getValue());
+        System.out.print(" "+container.getPiezas().get(1).getDistribucion().get("arriba-de").getValue()+"   ");
+
+        System.out.print("3. "+container.getPiezas().get(2).getDistribucion().get("arriba-iz").getValue());
+        System.out.print(" "+container.getPiezas().get(2).getDistribucion().get("arriba").getValue());
+        System.out.println(" "+container.getPiezas().get(2).getDistribucion().get("arriba-de").getValue()+"   ");
+
+        System.out.print("   "+container.getPiezas().get(0).getDistribucion().get("abajo-iz").getValue());
+        System.out.print(" "+container.getPiezas().get(0).getDistribucion().get("abajo").getValue());
+        System.out.print(" "+container.getPiezas().get(0).getDistribucion().get("abajo-de").getValue()+"   ");
+
+        System.out.print("   "+container.getPiezas().get(1).getDistribucion().get("abajo-iz").getValue());
+        System.out.print(" "+container.getPiezas().get(1).getDistribucion().get("abajo").getValue());
+        System.out.print(" "+container.getPiezas().get(1).getDistribucion().get("abajo-de").getValue()+"   ");
+
+        System.out.print("   "+container.getPiezas().get(2).getDistribucion().get("abajo-iz").getValue());
+        System.out.print(" "+container.getPiezas().get(2).getDistribucion().get("abajo").getValue());
+        System.out.print(" "+container.getPiezas().get(2).getDistribucion().get("abajo-de").getValue()+"   ");
     }
-    private void printPieza(DistribucionPieza distribucion){
-        System.out.println(" ");
-        System.out.print(distribucion.get("arriba-iz").getValue()+" ");
-        System.out.print(distribucion.get("arriba").getValue()+" ");
-        System.out.println(distribucion.get("arriba-de").getValue());
-        System.out.print(distribucion.get("abajo-iz").getValue()+" ");
-        System.out.print(distribucion.get("abajo").getValue()+" ");
-        System.out.println(distribucion.get("abajo-de").getValue());
-    }
+    
 }

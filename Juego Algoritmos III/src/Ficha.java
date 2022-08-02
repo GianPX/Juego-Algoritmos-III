@@ -15,4 +15,3 @@ public class Ficha<V> {
         this.value = value;
     }
 }  
-

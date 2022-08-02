@@ -1,19 +1,26 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class main {
     public static void main(String[] args){
-    
+        
+        //ObjetosPrincipa;es
         GamePrinter printer = new GamePrinter();
         ContainerPieza container = new ContainerPieza(3);
-        CreadorPieza creador = new CreadorPieza();
+        CreadorHexagono creador = new CreadorHexagono();
         GameManager gameManager = new GameManager();
+        Matcher matcher = new Matcher();
+        Puntaje puntaje = new Puntaje(0);
+        Comodines comodines= new Comodines(1,1);
+        GameEnder gameEnder = new GameEnder();
+        Scanner scanner = new Scanner(System.in);
 
         //Objetos para comparar
         Ficha emptyFicha = new Ficha<String>("0");
         DistribucionPieza emptyDist = new DistHexagono(emptyFicha,emptyFicha,emptyFicha,emptyFicha,emptyFicha,emptyFicha);
-        Matcher matcher = new Matcher();
-        Puntaje puntaje = new Puntaje();
-        puntaje.setPuntos(0);
+        
+    
 
         Ficha f0 = new Ficha<String>("0");
         Ficha f1 = new Ficha<String>("0");
@@ -290,8 +297,108 @@ public class main {
         c52.setVecinos(v52);
         c53.setVecinos(v53);
         
-        
-        gameManager.play(c1, container.piezas.get(0), matcher, container, emptyFicha, emptyDist,puntaje);
-        printer.printGame(container,puntaje,c0,c7,c16,c27,c38,c47);
+        HashMap<String,Casilla> tablero = new HashMap<>();
+        tablero.put("0", c0);
+        tablero.put("1", c1);
+        tablero.put("2", c2);
+        tablero.put("3", c3);
+        tablero.put("4", c4);
+        tablero.put("5", c5);
+        tablero.put("6", c6);
+        tablero.put("7", c7);
+        tablero.put("8", c8);
+        tablero.put("9", c9);
+        tablero.put("10", c10);
+        tablero.put("11", c11);
+        tablero.put("12", c12);
+        tablero.put("13", c13);
+        tablero.put("14", c14);
+        tablero.put("15", c15);
+        tablero.put("16", c16);
+        tablero.put("17", c17);
+        tablero.put("18", c18);
+        tablero.put("19", c19);
+        tablero.put("20", c20);
+        tablero.put("21", c21);
+        tablero.put("22", c22);
+        tablero.put("23", c23);
+        tablero.put("24", c24);
+        tablero.put("25", c25);
+        tablero.put("26", c26);
+        tablero.put("27", c27);
+        tablero.put("28", c28);
+        tablero.put("29", c29);
+        tablero.put("30", c30);
+        tablero.put("31", c31);
+        tablero.put("32", c32);
+        tablero.put("33", c33);
+        tablero.put("34", c34);
+        tablero.put("35", c35);
+        tablero.put("36", c36);
+        tablero.put("37", c37);
+        tablero.put("38", c38);
+        tablero.put("39", c39);
+        tablero.put("40", c40);
+        tablero.put("41", c41);
+        tablero.put("42", c42);
+        tablero.put("43", c43);
+        tablero.put("44", c44);
+        tablero.put("45", c45);
+        tablero.put("46", c46);
+        tablero.put("47", c47);
+        tablero.put("48", c48);
+        tablero.put("49", c49);
+        tablero.put("50", c50);
+        tablero.put("51", c51);
+        tablero.put("52", c52);
+        tablero.put("53", c53);
+
+        while(gameEnder.endGame(c0, emptyFicha, container.getPiezas())){
+            printer.printGame(container, puntaje,c0,c7,c16,c27,c38,c47);
+            System.out.print(">>>");
+            String op = scanner.nextLine();
+            switch(op){
+                case "1":
+                    System.out.print(">>>");
+                    op = scanner.nextLine();
+                    gameManager.play(tablero.get(op), container.get(0), matcher, container, emptyFicha, emptyDist, puntaje);
+                    break;
+                case "2":
+                    System.out.print(">>>");
+                    op = scanner.nextLine();
+                    gameManager.play(tablero.get(op), container.get(1), matcher, container, emptyFicha, emptyDist, puntaje);
+                    break;
+                case "3":
+                    System.out.print(">>>");
+                    op = scanner.nextLine();
+                    gameManager.play(tablero.get(op), container.get(2), matcher, container, emptyFicha, emptyDist, puntaje);
+                    break;
+                case "4":
+                    System.out.print(">>>");
+                    op = scanner.nextLine();
+                    switch(op){
+                        case "1":
+                            container.get(0).rotate();
+                            break;
+                        case "2":
+                            container.get(1).rotate();
+                            break;
+                        case "3":
+                            container.get(2).rotate();
+                            break;
+                    }
+                    break;
+                case "5":
+                    System.out.print(">>>");
+                    op = scanner.nextLine();
+                    break;
+                case "6":
+                    System.out.print(">>>");
+                    op = scanner.nextLine();
+                    break;    
+            }
+        }
+        printer.printGame(container, puntaje,c0,c7,c16,c27,c38,c47);
+        System.out.println("Game Over");
     }
 }

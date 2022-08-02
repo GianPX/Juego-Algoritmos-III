@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -8,6 +7,7 @@ public class DistHexagono extends DistribucionPieza<String,Ficha>{
     //Constructor
     DistHexagono(Ficha ... fichas){
         this.constanteMatches = 2;
+        this.constanteRotaciones = 6;
         this.mapa.put("arriba",fichas[0]);
         this.mapa.put("arriba-de",fichas[1]);
         this.mapa.put("abajo-de",fichas[2]);
@@ -59,4 +59,3 @@ public class DistHexagono extends DistribucionPieza<String,Ficha>{
         return posiciones;
     }
 }
-
