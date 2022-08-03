@@ -10,15 +10,15 @@ public class GamePrinter {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-    public void printGame(ContainerPieza container,Puntaje puntaje, Casilla ... casillas){
+    public void printGame(ContainerPieza container,Puntaje puntaje, Comodines m,Comodines b,Casilla ... casillas){
         this.printPuntaje(puntaje);
         this.printTablero(casillas);
         System.out.println();
         this.printPiezas(container);
         System.out.println();
         System.out.println("4. Rotar");
-        System.out.println("5. Martillo");
-        System.out.println("6. Basura");
+        System.out.println("5. Martillo ("+ m.getPrecio(puntaje)+")");
+        System.out.println("6. Basura ("+ b.getPrecio(puntaje)+")");
         System.out.println();
     }
     

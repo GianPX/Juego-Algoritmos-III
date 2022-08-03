@@ -22,4 +22,10 @@ public class GameManager{
         }
 
     }
+    public void aplicarComodin(Casilla casilla,Ficha emptyFicha,Comodines comodin, Puntaje puntaje){
+        comodin.aplicar(emptyFicha, casilla, puntaje);
+    }
+    public void aplicarComodin(Pieza pieza,ContainerPieza container,Comodines comodin, Puntaje puntaje){
+        comodin.aplicar(pieza, container, puntaje);
+    }
 }

@@ -23,7 +23,7 @@ public class Casilla<E extends Ficha, D, V extends Vecindad<D, Casilla>> {
 
     public boolean insertar(Pieza pieza, E emptyFicha) {
         if (this.insertable(pieza.getDistribucion(), pieza.getRecorrido(), pieza.getPosiciones(), emptyFicha)) {
-            this.insertar2(pieza.getDistribucion(), pieza.getRecorrido(), pieza.getPosiciones());
+            this.insertar2(pieza.getDistribucion(), pieza.getRecorrido(), pieza.getPosiciones(),emptyFicha);
             return true;
         }else {
             return false;
@@ -74,11 +74,10 @@ public class Casilla<E extends Ficha, D, V extends Vecindad<D, Casilla>> {
 
     }
 
-    private void insertar2(DistribucionPieza<D, E> distribucion, ArrayList<D> recorrido, ArrayList<D> posiciones) {
+    private void insertar2(DistribucionPieza<D, E> distribucion, ArrayList<D> recorrido, ArrayList<D> posiciones,E emptyFicha) {
         ArrayList<Casilla> casillas = this.recorrer(recorrido);
         for (Casilla<E, D, V> i : casillas) {
-
-            i.setFicha(distribucion.get(posiciones.get(0)));
+            if(!distribucion.get(posiciones.get(0)).value.equals(emptyFicha.value)) i.setFicha(distribucion.get(posiciones.get(0)));
             posiciones.remove(0);
         }
     }

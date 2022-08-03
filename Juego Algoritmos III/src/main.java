@@ -12,7 +12,8 @@ public class main {
         GameManager gameManager = new GameManager();
         Matcher matcher = new Matcher();
         Puntaje puntaje = new Puntaje(0);
-        Comodines comodines= new Comodines(1,1);
+        Basurero basurero = new Basurero(1);
+        Martillo martillo= new Martillo(1);
         GameEnder gameEnder = new GameEnder();
         Scanner scanner = new Scanner(System.in);
 
@@ -354,7 +355,7 @@ public class main {
         tablero.put("53", c53);
 
         while(gameEnder.endGame(c0, emptyFicha, container.getPiezas())){
-            printer.printGame(container, puntaje,c0,c7,c16,c27,c38,c47);
+            printer.printGame(container, puntaje, martillo, basurero,c0,c7,c16,c27,c38,c47);
             System.out.print(">>>");
             String op = scanner.nextLine();
             switch(op){
@@ -391,14 +392,16 @@ public class main {
                 case "5":
                     System.out.print(">>>");
                     op = scanner.nextLine();
+                    gameManager.aplicarComodin(tablero.get(op), emptyFicha,martillo,puntaje);
                     break;
                 case "6":
                     System.out.print(">>>");
-                    op = scanner.nextLine();
+                    int op1 = scanner.nextInt();
+                    gameManager.aplicarComodin(container.get(op1-1), container, basurero, puntaje);
                     break;    
             }
         }
-        printer.printGame(container, puntaje,c0,c7,c16,c27,c38,c47);
+        printer.printGame(container, puntaje, martillo,basurero,c0,c7,c16,c27,c38,c47);
         System.out.println("Game Over");
     }
 }
