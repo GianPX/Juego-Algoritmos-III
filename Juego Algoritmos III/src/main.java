@@ -20,7 +20,13 @@ public class main {
         //Objetos para comparar
         Ficha emptyFicha = new Ficha<String>("0");
         DistribucionPieza emptyDist = new DistHexagono(emptyFicha,emptyFicha,emptyFicha,emptyFicha,emptyFicha,emptyFicha);
+<<<<<<< HEAD
         
+=======
+        Matcher matcher = new Matcher();
+        Puntaje puntaje = new Puntaje(400);
+        Comodines comodines= new Comodines(1,1);
+>>>>>>> 1424843a7ac5509919046d82a1290458b49a1758
     
 
         Ficha f0 = new Ficha<String>("0");
