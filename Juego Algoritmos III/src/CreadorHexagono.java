@@ -1,17 +1,18 @@
 import java.util.Random;
 
-public class CreadorHexagono implements CreadorPieza{
-    //Attributes
+public class CreadorHexagono implements CreadorPieza {
+    // Attributes
 
-    //Constructor
-    public CreadorHexagono(){
+    // Constructor
+    public CreadorHexagono() {
 
     }
-    //Methods
-    public Pieza createPieza(){
+
+    // Methods
+    public Pieza createPieza() {
         Random random = new Random();
-        int n1 = random.nextInt(6)+1;
-        int n2 = random.nextInt(7)+1;
+        int n1 = random.nextInt(6) + 1;
+        int n2 = random.nextInt(7) + 1;
 
         Ficha f1;
         Ficha f2;
@@ -20,7 +21,7 @@ public class CreadorHexagono implements CreadorPieza{
         Ficha f5;
         Ficha f6;
         Pieza pieza;
-        switch (n2){
+        switch (n2) {
             case 1:
                 f1 = new Ficha(String.valueOf(n1));
                 f2 = new Ficha("0");
@@ -87,10 +88,10 @@ public class CreadorHexagono implements CreadorPieza{
                 break;
         }
 
-        DistHexagono distribucion = new DistHexagono(f1,f2,f3,f4,f5,f6);
+        DistHexagono distribucion = new DistHexagono(f1, f2, f3, f4, f5, f6);
         pieza = new Pieza(distribucion);
-        n1 = random.nextInt(6)+1;
-        for(int i=0; i<=n1; i++){
+        n1 = random.nextInt(6) + 1;
+        for (int i = 0; i <= n1; i++) {
             pieza.rotate();
         }
         return pieza;

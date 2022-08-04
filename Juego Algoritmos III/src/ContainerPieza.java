@@ -1,38 +1,45 @@
 import java.util.ArrayList;
 import java.util.Random;
+
 public class ContainerPieza {
-    //Attributes
+    // Attributes
     int cantidadPiezas;
     ArrayList<Pieza> piezas = new ArrayList<>();
     CreadorPieza creador = new CreadorHexagono();
-    //Constructor
-    public ContainerPieza(int cantidad){
-        this.cantidadPiezas=cantidad;
+
+    // Constructor
+    public ContainerPieza(int cantidad) {
+        this.cantidadPiezas = cantidad;
         this.refill();
     }
-    //Methods
-    public Pieza get(int index){
+
+    // Methods
+    public Pieza get(int index) {
         return this.piezas.get(index);
     }
-    private int contPiezas(){
+
+    private int contPiezas() {
         return this.piezas.size();
     }
-    public void showPiezas(){
-        for(Pieza i : this.piezas){
+
+    public void showPiezas() {
+        for (Pieza i : this.piezas) {
             i.show();
             System.out.println();
         }
     }
-    public void refill(){
-        while(this.contPiezas()<this.cantidadPiezas){
+
+    public void refill() {
+        while (this.contPiezas() < this.cantidadPiezas) {
             this.piezas.add(this.creador.createPieza());
         }
     }
-    public void delete(Pieza pieza){
+
+    public void delete(Pieza pieza) {
         this.piezas.remove(pieza);
     }
 
-    public ArrayList<Pieza> getPiezas(){
+    public ArrayList<Pieza> getPiezas() {
         return this.piezas;
     }
 }

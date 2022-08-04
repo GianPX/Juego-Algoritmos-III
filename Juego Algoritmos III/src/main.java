@@ -12,8 +12,8 @@ public class main {
         GameManager gameManager = new GameManager();
         Matcher matcher = new Matcher();
         Puntaje puntaje = new Puntaje(0);
-        Basurero basurero = new Basurero(1);
-        Martillo martillo= new Martillo(1);
+        Comodines basurero = new Basurero(100);
+        Comodines martillo= new Martillo(200);
         GameEnder gameEnder = new GameEnder();
         Scanner scanner = new Scanner(System.in);
 
@@ -353,6 +353,45 @@ public class main {
         tablero.put("51", c51);
         tablero.put("52", c52);
         tablero.put("53", c53);
+
+        //Casos de Prueba
+        f0.setValue("1");
+        f1.setValue("1");
+        f3.setValue("1");
+        f4.setValue("1");
+        f7.setValue("1");
+        f8.setValue("1");
+        f9.setValue("1");
+        f10.setValue("1");
+        f11.setValue("1");
+        f12.setValue("1");
+        f18.setValue("1");
+        f19.setValue("1");
+        f20.setValue("1");
+        f5.setValue("5");
+        f6.setValue("5");
+        f13.setValue("5");
+        f14.setValue("5");
+        f21.setValue("5");
+        f22.setValue("5");
+        f23.setValue("5");
+        f33.setValue("5");
+        f24.setValue("2");
+        f25.setValue("2");
+        f26.setValue("2");
+        f37.setValue("2");
+        f51.setValue("3");
+        f52.setValue("3");
+        f53.setValue("3");
+        f32.setValue("4");
+        f42.setValue("4");
+        f43.setValue("4");
+        f47.setValue("6");
+        f39.setValue("6");
+        f40.setValue("6");
+        f41.setValue("6");
+        f50.setValue("6");    
+        //--------------
 
         while(gameEnder.endGame(c0, emptyFicha, container.getPiezas(),emptyDist)){
             printer.printGame(container, puntaje, martillo, basurero,c0,c7,c16,c27,c38,c47);

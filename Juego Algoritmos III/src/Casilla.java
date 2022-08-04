@@ -16,18 +16,20 @@ public class Casilla<E extends Ficha, D, V extends Vecindad<D, Casilla>> {
     E getFicha() {
         return this.ficha;
     }
+
     void setFicha(E ficha) {
         this.ficha = ficha;
     }
+
     public void setVecinos(V vecinos) {
         this.vecinos = vecinos;
     }
 
     public boolean insertar(Pieza pieza, E emptyFicha) {
         if (this.insertable(pieza.getDistribucion(), pieza.getRecorrido(), pieza.getPosiciones(), emptyFicha)) {
-            this.insertar2(pieza.getDistribucion(), pieza.getRecorrido(), pieza.getPosiciones(),emptyFicha);
+            this.insertar2(pieza.getDistribucion(), pieza.getRecorrido(), pieza.getPosiciones(), emptyFicha);
             return true;
-        }else {
+        } else {
             return false;
         }
     }
@@ -49,13 +51,17 @@ public class Casilla<E extends Ficha, D, V extends Vecindad<D, Casilla>> {
         } else
             return false;
     }
-    private void insertar2(DistribucionPieza<D, E> distribucion, ArrayList<D> recorrido, ArrayList<D> posiciones,E emptyFicha) {
+
+    private void insertar2(DistribucionPieza<D, E> distribucion, ArrayList<D> recorrido, ArrayList<D> posiciones,
+            E emptyFicha) {
         ArrayList<Casilla> casillas = this.recorrer(recorrido);
         for (Casilla<E, D, V> i : casillas) {
-            if(!distribucion.get(posiciones.get(0)).igual(emptyFicha.value)) i.setFicha(distribucion.get(posiciones.get(0)));
+            if (!distribucion.get(posiciones.get(0)).igual(emptyFicha.value))
+                i.setFicha(distribucion.get(posiciones.get(0)));
             posiciones.remove(0);
         }
     }
+
     public ArrayList<Casilla> recorrer(ArrayList<D> recorrido) {
         recorrido.remove(0);
         ArrayList<Casilla> lista = new ArrayList<>();
@@ -82,5 +88,4 @@ public class Casilla<E extends Ficha, D, V extends Vecindad<D, Casilla>> {
 
     }
 
-    
 }

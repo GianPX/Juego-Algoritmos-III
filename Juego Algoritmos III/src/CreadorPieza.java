@@ -1,8 +1,4 @@
 public interface CreadorPieza {
-    //Attributes
-
-    //Constructor
-
-    //Methods
+    // Methods
     public Pieza createPieza();
 }

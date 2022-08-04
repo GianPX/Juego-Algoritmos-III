@@ -1,11 +1,12 @@
 public class Ficha<V> {
-    //Attributes
+    // Attributes
     V value;
-    //constructor
-    public Ficha(V value){
-        this.value=value;
+
+    // constructor
+    public Ficha(V value) {
+        this.value = value;
     }
-    //Methods
+    // Methods
 
     public V getValue() {
         return value;
@@ -15,7 +16,7 @@ public class Ficha<V> {
         this.value = value;
     }
 
-    public boolean igual(V value){
+    public boolean igual(V value) {
         return this.value == value;
     }
-}  
+}

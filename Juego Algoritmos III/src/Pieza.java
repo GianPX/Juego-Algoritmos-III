@@ -10,14 +10,19 @@ public class Pieza<F extends Ficha, Dist extends DistribucionPieza, D> {
     public Pieza(Dist distribucion) {
         this.distribucion = distribucion;
     }
-    public Pieza(){}
+
+    public Pieza() {
+    }
+
     // Methods
     public void setDistribucion(F fichas) {
         this.distribucion.setDistribucion(fichas);
     }
+
     public void setDistribucion(Dist d) {
         this.distribucion.putAll(d);
     }
+
     public void show() {
         ArrayList<D> recorrido = this.getPosiciones();
         for (D i : recorrido) {
@@ -52,7 +57,8 @@ public class Pieza<F extends Ficha, Dist extends DistribucionPieza, D> {
         }
         return cont;
     }
-    public int getConstanteR(){
+
+    public int getConstanteR() {
         return this.distribucion.getConstanteR();
     }
 

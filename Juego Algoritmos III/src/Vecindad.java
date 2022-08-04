@@ -1,26 +1,32 @@
 import java.util.HashMap;
 import java.util.Set;
 
-public abstract class Vecindad<D,C extends Casilla> {
-    //Attributes
-    HashMap<D,C> mapa = new HashMap<D,C>();
-    //Constructor
-    public Vecindad(HashMap<D,C> mapa){
-        this.mapa=mapa;
+public abstract class Vecindad<D, C extends Casilla> {
+    // Attributes
+    HashMap<D, C> mapa = new HashMap<D, C>();
+
+    // Constructor
+    public Vecindad(HashMap<D, C> mapa) {
+        this.mapa = mapa;
     }
-    public Vecindad(C ... vecinos){
+
+    public Vecindad(C... vecinos) {
 
     }
-    //Methods
-    void add(D direccion, C forma){
-        mapa.put(direccion,forma);
+
+    // Methods
+    void add(D direccion, C forma) {
+        mapa.put(direccion, forma);
     }
-    C get(D direccion){
+
+    C get(D direccion) {
         return mapa.get(direccion);
     }
-    public void putVecinos(C ...vecinos){
+
+    public void putVecinos(C... vecinos) {
     }
-    public Set<D> keySet(){
+
+    public Set<D> keySet() {
         return mapa.keySet();
     }
 }
