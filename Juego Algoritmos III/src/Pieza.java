@@ -45,7 +45,7 @@ public class Pieza<F extends Ficha, Dist extends DistribucionPieza, D> {
         int cont = 0;
         ArrayList<D> recorrido = this.getPosiciones();
         for (D u : recorrido) {
-            if (!(this.distribucion.get(u).getValue().equals(emptyFicha.getValue()))) {
+            if (!(this.distribucion.get(u).igual(emptyFicha.getValue()))) {
                 cont += 1;
             }
 

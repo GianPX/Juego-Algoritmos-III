@@ -14,7 +14,7 @@ public class ContainerPieza {
     public Pieza get(int index){
         return this.piezas.get(index);
     }
-    public int contPiezas(){
+    private int contPiezas(){
         return this.piezas.size();
     }
     public void showPiezas(){

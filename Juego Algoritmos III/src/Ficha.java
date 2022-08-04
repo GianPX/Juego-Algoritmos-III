@@ -14,4 +14,8 @@ public class Ficha<V> {
     public void setValue(V value) {
         this.value = value;
     }
+
+    public boolean igual(V value){
+        return this.value == value;
+    }
 }  

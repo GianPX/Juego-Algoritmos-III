@@ -16,9 +16,11 @@ public class Casilla<E extends Ficha, D, V extends Vecindad<D, Casilla>> {
     E getFicha() {
         return this.ficha;
     }
-
     void setFicha(E ficha) {
         this.ficha = ficha;
+    }
+    public void setVecinos(V vecinos) {
+        this.vecinos = vecinos;
     }
 
     public boolean insertar(Pieza pieza, E emptyFicha) {
@@ -38,8 +40,8 @@ public class Casilla<E extends Ficha, D, V extends Vecindad<D, Casilla>> {
                 E fichaP = distribucion.get(posiciones.get(0));
                 posiciones.remove(0);
                 E fichaC = i.getFicha();
-                if (!(fichaP.getValue().equals(emptyFicha.getValue())
-                        || fichaC.getValue().equals(emptyFicha.getValue()))) {
+                if (!(fichaP.igual(emptyFicha.getValue())
+                        || fichaC.igual(emptyFicha.getValue()))) {
                     return false;
                 }
             }
@@ -47,7 +49,13 @@ public class Casilla<E extends Ficha, D, V extends Vecindad<D, Casilla>> {
         } else
             return false;
     }
-
+    private void insertar2(DistribucionPieza<D, E> distribucion, ArrayList<D> recorrido, ArrayList<D> posiciones,E emptyFicha) {
+        ArrayList<Casilla> casillas = this.recorrer(recorrido);
+        for (Casilla<E, D, V> i : casillas) {
+            if(!distribucion.get(posiciones.get(0)).igual(emptyFicha.value)) i.setFicha(distribucion.get(posiciones.get(0)));
+            posiciones.remove(0);
+        }
+    }
     public ArrayList<Casilla> recorrer(ArrayList<D> recorrido) {
         recorrido.remove(0);
         ArrayList<Casilla> lista = new ArrayList<>();
@@ -74,15 +82,5 @@ public class Casilla<E extends Ficha, D, V extends Vecindad<D, Casilla>> {
 
     }
 
-    private void insertar2(DistribucionPieza<D, E> distribucion, ArrayList<D> recorrido, ArrayList<D> posiciones,E emptyFicha) {
-        ArrayList<Casilla> casillas = this.recorrer(recorrido);
-        for (Casilla<E, D, V> i : casillas) {
-            if(!distribucion.get(posiciones.get(0)).value.equals(emptyFicha.value)) i.setFicha(distribucion.get(posiciones.get(0)));
-            posiciones.remove(0);
-        }
-    }
-
-    public void setVecinos(V vecinos) {
-        this.vecinos = vecinos;
-    }
+    
 }

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Set;
 
-public class Vecindad<D,C extends Casilla> {
+public abstract class Vecindad<D,C extends Casilla> {
     //Attributes
     HashMap<D,C> mapa = new HashMap<D,C>();
     //Constructor
