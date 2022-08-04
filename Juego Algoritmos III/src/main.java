@@ -20,13 +20,7 @@ public class main {
         //Objetos para comparar
         Ficha emptyFicha = new Ficha<String>("0");
         DistribucionPieza emptyDist = new DistHexagono(emptyFicha,emptyFicha,emptyFicha,emptyFicha,emptyFicha,emptyFicha);
-<<<<<<< HEAD
         
-=======
-        Matcher matcher = new Matcher();
-        Puntaje puntaje = new Puntaje(400);
-        Comodines comodines= new Comodines(1,1);
->>>>>>> 1424843a7ac5509919046d82a1290458b49a1758
     
 
         Ficha f0 = new Ficha<String>("0");
@@ -360,7 +354,7 @@ public class main {
         tablero.put("52", c52);
         tablero.put("53", c53);
 
-        while(gameEnder.endGame(c0, emptyFicha, container.getPiezas())){
+        while(gameEnder.endGame(c0, emptyFicha, container.getPiezas(),emptyDist)){
             printer.printGame(container, puntaje, martillo, basurero,c0,c7,c16,c27,c38,c47);
             System.out.print(">>>");
             String op = scanner.nextLine();

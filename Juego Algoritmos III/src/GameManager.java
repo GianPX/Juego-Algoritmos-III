@@ -13,6 +13,7 @@ public class GameManager{
             int matches = matcher.contarMatches(casilla, emptyDist, emptyFicha);
             puntaje.contarPuntaje(pieza, matches, emptyFicha);
             container.delete(pieza);
+            matcher.borrarMatches(casilla, emptyDist, emptyFicha);
             pieza = null;
             container.refill();
 

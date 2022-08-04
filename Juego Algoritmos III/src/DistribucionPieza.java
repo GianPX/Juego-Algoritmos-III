@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-public abstract class DistribucionPieza<D,F extends Ficha> implements RecorridoYPosicion {
+public abstract class DistribucionPieza<D,F extends Ficha>{
     //Attributes
     HashMap<D,F> mapa = new HashMap<D,F>();
     int constanteMatches;
@@ -28,5 +28,14 @@ public abstract class DistribucionPieza<D,F extends Ficha> implements RecorridoY
     }
     public int getConstanteR(){
         return this.constanteRotaciones;
+    }
+    public void putAll(DistribucionPieza distribucion){
+        this.mapa.putAll(distribucion.mapa);
+    }
+    public abstract ArrayList<D> recorrido();
+    public abstract ArrayList<D> posiciones();
+
+    public void clear(){
+        this.mapa.clear();
     }
 }

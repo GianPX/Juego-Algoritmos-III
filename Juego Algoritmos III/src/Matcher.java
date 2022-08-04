@@ -14,7 +14,6 @@ public class Matcher<E extends Ficha,C extends Casilla<E,D,V>,V extends Vecindad
         int cont = 0;
         for(C i : lista){
             if(!i.getFicha().getValue().equals(emptyFicha.getValue())){
-                
                 if(this.match(i, emptyDist.recorrido(), i.getFicha())) cont++;
             } 
         }
@@ -30,5 +29,18 @@ public class Matcher<E extends Ficha,C extends Casilla<E,D,V>,V extends Vecindad
             return true;
         }
         else return false;
+    }
+    public void borrarMatches(C c, Dist emptyDist, E emptyFicha){
+        ArrayList<C> lista = new ArrayList<C>();
+        ArrayList<Casilla> listaBorrar = new ArrayList<Casilla>();
+        c.recorrerProfundidad(lista);
+        for(C i : lista){
+            if(!i.getFicha().getValue().equals(emptyFicha.getValue())){
+                if(this.match(i, emptyDist.recorrido(), i.getFicha())) listaBorrar.addAll(i.recorrer(emptyDist.recorrido()));
+            } 
+        }
+        for(Casilla j : listaBorrar){
+            j.ficha.setValue(emptyFicha.getValue());
+        }
     }
 }
